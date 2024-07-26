@@ -20,8 +20,8 @@ CMD ["npm", "run", "start"]
 # Listar imagens criadas:
 # docker image ls <nome da imagem>
 
-# Criar e executar o container criado a partir da imagem:
-# docker run -p 3000:3000 <nome da imagem>
+# Criar/nomear/conectar-rede e executar o container criado a partir da imagem:
+# docker run --name meu_app --network=minharede -p 3000:3000 <nome da imagem>
 
 # Listar containers em execucão:
 # docker container ls ou docker ps
