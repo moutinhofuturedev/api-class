@@ -20,8 +20,8 @@ CMD ["npm", "run", "start"]
 # Listar imagens criadas:
 # docker image ls <nome da imagem>
 
-# Criar/nomear/conectar-rede e executar o container criado a partir da imagem:
-# docker run --name meu_app --network=minharede -p 3000:3000 <nome da imagem>
+# Criar/nomear/associar-volume/conectar-rede e executar o container criado a partir da imagem:
+# docker run --name nome_container -volume <nome do volume>:<local do volume> --network=minharede -p 3000:3000 -d <nome da imagem>
 
 # Listar containers em execucão:
 # docker container ls ou docker ps
@@ -31,3 +31,7 @@ CMD ["npm", "run", "start"]
 
 # Rodar o container novamente:
 # docker start <id do container>
+
+# Sobre Docker Volumes:
+  # Volumes sao arquivos locais que o container pode acessar e manipular. Porém, existe casos de usos e um container nem sempre precisar ter um volume.
+  # Para criar um volume, basta executar o comando: docker volume create <nome do volume>
