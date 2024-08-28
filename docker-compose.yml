@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-compose
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=rocketseat-db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=root
+    networks:
+      - rocketseat-devops-network
+
+  app:
+    build:
+      context: .
+    container_name: app
+    ports:
+      - 3000:3000
+    depends_on:
+        - mysql
+    networks:
+      - rocketseat-devops-network
+
+networks:
+  rocketseat-devops-network:
+    name: rocketseat-devops-network
+    external: true
+    driver: bridge
+
+volumes:
+  db:
+
